@@ -1,0 +1,16 @@
+====================================================
+To make Ctrl+Up arrow   => Go to previous function
+	1. Go to Menu bar...Tools...Customize
+	2. Press on Keyboard button at bottom.
+	3. In text box below "Show commands containing", type "method".
+	4. Scroll down list box to find "Edit.PreviousMethod".
+	5. In combo box below "Use new shortcut in", select "Text Editor".
+	6. Click in text box on right, below "Press shortcut keys". Then press Ctrl+Up arrow.
+	7. Then press Assign button on the right.
+	8. Then press OK at the bottom.
+	9. Then press Close button at the bottom.
+
+To make Ctrl+Down arrow => Go to next     function
+	Do same, except for "Edit.NextMethod" and Ctrl+Down arrow
+
+====================================================

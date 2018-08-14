@@ -1,0 +1,29 @@
+Visual basic 5 forms
+====================
+1. If call a function/sub on a form, before loaded the form, then the default class instance is initialised and Form_Initialize is called. But the form isn't loaded. If then call "Set {form_name} = Nothing", the Form_Terminate routine is called and the default class instance is deleted.
+   Clearly, unless I try to load or show the form, the default instance only loads the class. If the name of the class is used as a type, then it means the type of the class. If it's used as a variable, then it acts as a variable that defaults to an instance of the class and can be deleted.
+
+2. If try to delete tables linked to grids on form in Form_QueryUnload or Form_Unload, the tables are locked, even if I clear the grids.
+   If try to delete tables linked to grids on form in Form_Terminate, the tables are deleted.
+   Clearly, the grids will lock the tables until their components are fully deleted, which only happens AFTER the form is unloaded, but before the class is terminated.
+   So always use "Set {form_name} = Nothing" and remove the tables in Form_Terminate.
+
+3. To restore a grid's position, save and set the AbsolutePosition of the Recordset that is the grid's data source, and save and set the Row of the grid. Note that the AbsolutePosition will return the current location of the grid and the Row will return the offset of the current row from the first visible row. But when the AbsolutePosition is set, that will set the first visible row of the grid.
+
+For EXAMPLE:
+
+Dim lFirstVisibleRow As Long
+Dim lCurrentRowOffset As Long
+
+'Save current position of input grid
+lCurrentRowOffset = DBGridInput.Row
+lFirstVisibleRow = datInput.Recordset.absolutePosition - lCurrentRowOffset
+
+'Save the current situation
+DBGridInput.Refresh
+datInput.Refresh
+
+'Restore position of input grid
+If lFirstVisibleRow > 0 Then datInput.Recordset.absolutePosition = lFirstVisibleRow
+If lCurrentRowOffset > 0 Then DBGridInput.Row = lCurrentRowOffset
+

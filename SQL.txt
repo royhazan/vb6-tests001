@@ -1,0 +1,2 @@
+1. Vb6 Replace function replaces multiple times. Useful for parameters in queries.
+2. In Access, dates are written as #mm/dd/yy#

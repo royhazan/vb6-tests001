@@ -1,0 +1,47 @@
+===============================
+To do
+===============================
+1. Add GUIDs.
+2. Learn how to use the interface types.
+
+===============================
+Recommendations
+===============================
+1. Projects that are deployed should be signed, into order to make a strong key name.
+2. Need to register library to deploy on client machine.
+3. To use a library or program in a Vb6 project, need to register as COM project (Open project properties, build tab, tick "Register for COM interop"
+4. To keep the same GUIDs, add them. Select Tools...Create GUID. Pick #5 [GUID...]. Press Copy. Then Exit. Then paste into relevant place.
+
+=====================================================
+To use with CreateObject() command, do the following:
+=====================================================
+To register:
+
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\regasm.exe /verbose /codebase "c:\Shared Program Files\Utilities\EncryptDecrypt.dll"
+
+Note: The framework type must match the library's target framework.
+
+To un-register:
+
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\regasm.exe /verbose /codebase /unregister "c:\Shared Program Files\Utilities\EncryptDecrypt.dll"
+
+=============================================================
+To add as project reference in Vb6 project, do the following:
+=============================================================
+To register:
+
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\regtlibv12.exe "C:\Shared Program Files\Utilities\EncryptDecrypt.tlb"
+
+Note: The framework type must match the library's target framework.
+
+To un-register:
+
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\regtlibv12.exe -u "C:\Shared Program Files\Utilities\EncryptDecrypt.tlb"
+
+===============================
+To sign a project:
+===============================
+
+Use the signing tab on the project properties
+For this project, using "KeyFile" as the keyfile name, password is "sakhira" and algorithm is sha256RSA.
+
